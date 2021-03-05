@@ -35,20 +35,21 @@ ccStreamer.on("message", function incoming(data) {
   const parsedData=JSON.parse(data);
   // console.log(parsedData);
   const parsedDataType=parsedData.TYPE;
-  const parsedDataFrom=parsedData.FROMSYMBOL;
-  const parsedDataTo=parsedData.TOSYMBOL;
+  // const parsedDataFrom=parsedData.FROMSYMBOL;
+  // const parsedDataTo=parsedData.TOSYMBOL;
   // console.log(parsedDataType);
   // console.log(parsedDataFrom);
   // console.log(parsedDataTo);
 
   if(parsedDataType==="5"){
     io.on("connection", (socket) => {
-      console.log("Connected SocketIO");
+      console.log("✅ Connected SocketIO");
       socket.setMaxListeners(0);
       socket.join(parsedDataType);
       socket.emit("getCoin", parsedData);
     });
   }
+
 });
 
 
